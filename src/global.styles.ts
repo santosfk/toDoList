@@ -7,6 +7,9 @@ const GlobalStyle = createGlobalStyle`
     font-family: Open-Sans, Helvetica, Sans-Serif;
     box-sizing: border-box;
     background-color: #252525;
+    width: 100%;
+    height: 100vh;
+
   }
 `;
 

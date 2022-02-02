@@ -8,6 +8,7 @@ function AddArea({ onAdd }: Props) {
   const taskAdd = () => {
     if (receiveText !== "") {
       onAdd(receiveText);
+      setReceiveText("");
     }
   };
   return (
