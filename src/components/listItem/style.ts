@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div<{
   done: boolean;
 }>`
-  margin-top: 3rem;
+  position: relative;
+  top: 8rem;
+  margin-top: 2rem;
   color: white;
   font-size: 1.5rem;
   background-color: ${({ done }) => (done ? "green" : "black")};
@@ -21,4 +23,11 @@ export const Container = styled.div<{
   input {
     margin-right: 10px;
   }
+`;
+export const Remove = styled.div`
+  position: relative;
+  left: 50%;
+  top: 5rem;
+  color: white;
+  margin-right: -1rem;
 `;

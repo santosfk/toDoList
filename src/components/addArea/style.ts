@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  bottom: 1rem;
+  position: fixed;
+  top: 10rem;
+
   button {
     width: 10rem;
     padding: 5px 5px;
