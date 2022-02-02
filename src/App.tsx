@@ -22,6 +22,15 @@ function App() {
 
     setList(newList);
   };
+  const handleTaskAdd = (taskName: string) => {
+    let NewList = [...list];
+    NewList.push({
+      id: list.length + 1,
+      name: taskName,
+      done: false,
+    });
+    setList(NewList);
+  };
 
   return (
     <>
@@ -38,7 +47,7 @@ function App() {
             itsDone={() => ItsDone(item)}
           />
         ))}
-        <AddArea />
+        <AddArea onAdd={handleTaskAdd} />
       </style.Content>
     </>
   );
