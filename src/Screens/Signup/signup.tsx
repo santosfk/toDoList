@@ -1,10 +1,19 @@
 import React from "react";
 import { TextField, Button } from "@mui/material";
-import { Title, Container, LeftContent, RightContent } from "./style";
+import {
+  Title,
+  Container,
+  LeftContent,
+  RightContent,
+  EmailContent,
+  PasswordContent,
+  SubmitContent,
+} from "./style";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-
+import SendIcon from "@mui/icons-material/Send";
+import ClipboardAnimation from "../../animations/components/ClipboardAnimation";
 type Inputs = {
   email: string;
   password: string;
@@ -28,8 +37,6 @@ export default function Signup() {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
-
         const user = userCredential.user;
         handleChangeRoute("login");
         console.log(user);
@@ -43,28 +50,52 @@ export default function Signup() {
   return (
     <>
       <Container>
+        <LeftContent>
+          <ClipboardAnimation />
+        </LeftContent>
         <RightContent>
           <Title>Cadastre-se</Title>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <TextField
-              id="filled-basic"
-              label="Email"
-              variant="filled"
-              {...register("email", { required: true })}
-            />
-            {errors.email && <span>This field is required</span>}
-            <TextField
-              type="password"
-              id="filled-basic"
-              label="Password"
-              variant="filled"
-              {...register("password", { required: true })}
-            />
-            {errors.password && <span>This field is required</span>}
-            <Button type="submit">Enviar</Button>
+            <EmailContent>
+              <TextField
+                id="filled-basic"
+                label="Email"
+                variant="outlined"
+                size="medium"
+                {...register("email", { required: true })}
+              />
+              {errors.email && <span>este campo é obrigatório</span>}
+            </EmailContent>
+            <PasswordContent>
+              <TextField
+                type="password"
+                id="filled-basic"
+                label="Password"
+                variant="outlined"
+                size="medium"
+                {...register("password", { required: true })}
+              />
+              {errors.password && <span>este campo é obrigatório</span>}
+            </PasswordContent>
+            <SubmitContent>
+              <Button
+                size="large"
+                type="submit"
+                variant="outlined"
+                endIcon={<SendIcon />}
+              >
+                Enviar
+              </Button>
+            </SubmitContent>
           </form>
+          <Button
+            variant="text"
+            size="large"
+            onClick={() => handleChangeRoute("login")}
+          >
+            ou faça login
+          </Button>
         </RightContent>
-        <LeftContent></LeftContent>
       </Container>
     </>
   );
