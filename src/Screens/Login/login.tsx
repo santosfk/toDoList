@@ -13,6 +13,7 @@ import {
   Title,
 } from "./style";
 import SendIcon from "@mui/icons-material/Send";
+import TasksAnimation from "../../animations/components/Tasks";
 
 type Inputs = {
   email: string;
@@ -49,7 +50,7 @@ export default function Login() {
   return (
     <Container>
       <LeftContent>
-        <Title>Cadastre-se</Title>
+        <Title>Faça Login</Title>
         <form onSubmit={handleSubmit(onSubmit)}>
           <EmailContent>
             <TextField
@@ -76,18 +77,24 @@ export default function Login() {
             <Button
               size="large"
               type="submit"
-              variant="outlined"
+              variant="contained"
               endIcon={<SendIcon />}
             >
               Enviar
             </Button>
           </SubmitContent>
         </form>
-        <Button variant="text" size="large">
-          ou faça login
+        <Button
+          variant="outlined"
+          size="large"
+          onClick={() => handleChangeRoute("")}
+        >
+          ou cadastre-se
         </Button>
       </LeftContent>
-      <RightContent></RightContent>
+      <RightContent>
+        <TasksAnimation />
+      </RightContent>
     </Container>
   );
 }
