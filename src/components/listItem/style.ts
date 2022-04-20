@@ -24,10 +24,9 @@ export const Container = styled.div<{
     margin-right: 10px;
   }
 `;
-export const Remove = styled.div`
-  position: relative;
-  left: 50%;
-  top: 5rem;
-  color: white;
-  margin-right: -1rem;
+export const TasksWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 `;
