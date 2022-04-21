@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  position: fixed;
+  top: 20px;
+`;
 export const ButtonAddTask = styled.button`
   width: 300px;
   height: 50px;

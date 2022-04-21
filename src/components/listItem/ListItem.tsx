@@ -4,6 +4,7 @@ import { doc, getDocs, collection, deleteDoc } from "firebase/firestore";
 import database from "../../services/firebase";
 import TaskItem from "../TaskItem";
 import { UserEmail } from "../../Context/UserEmailContext";
+import { ChangeData } from "../../Context/ChangeDataContext";
 export interface DataTask {
   [id: string]: {
     title: string;
@@ -13,9 +14,10 @@ export interface DataTask {
 function ListItem() {
   const [receiveData, setReceiveData] = useState<DataTask[]>([]);
   const { userReceiveEmail } = useContext(UserEmail);
+  const { changeDataContext, setChangeDataContext } = useContext(ChangeData);
   useEffect(() => {
     getData();
-  }, []);
+  }, [changeDataContext]);
   console.log(userReceiveEmail);
   const taskRef = collection(database, userReceiveEmail);
   const getData = async () => {
@@ -28,6 +30,7 @@ function ListItem() {
   console.log(receiveData);
   const deleteData = async (title: string) => {
     await deleteDoc(doc(database, "tasks", title));
+    setChangeDataContext(!changeDataContext);
   };
   return (
     <>

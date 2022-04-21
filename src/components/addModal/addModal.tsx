@@ -16,6 +16,7 @@ import {
 import database from "../../services/firebase";
 import AddIcon from "@mui/icons-material/Add";
 import { UserEmail } from "../../Context/UserEmailContext";
+import { ChangeData } from "../../Context/ChangeDataContext";
 
 type Props = {
   setModalOn: Function;
@@ -23,6 +24,7 @@ type Props = {
 export default function AddModal({ setModalOn }: Props) {
   const [receiveTitle, setReceiveTitle] = useState("");
   const [receiveDescription, setReceiveDescription] = useState("");
+  const { changeDataContext, setChangeDataContext } = useContext(ChangeData);
   const { userReceiveEmail } = useContext(UserEmail);
   const taskRef = collection(database, userReceiveEmail);
   const pullData = async () => {
@@ -30,6 +32,7 @@ export default function AddModal({ setModalOn }: Props) {
       title: receiveTitle,
       description: receiveDescription,
     });
+    setChangeDataContext(!changeDataContext);
   };
 
   return (
