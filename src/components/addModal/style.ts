@@ -2,15 +2,17 @@ import styled from "styled-components";
 
 export const Backdrop = styled.div`
   background-color: rgb(190, 190, 190, 0.8);
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   position: absolute;
-  z-index: 1;
-  display: flex;
+  margin: auto;
+  z-index: 2;
+  left: 0;
+  top: 0;
 `;
 export const Container = styled.div`
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   width: 550px;
   height: 400px;
   left: 30%;

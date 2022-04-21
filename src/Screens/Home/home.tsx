@@ -15,8 +15,8 @@ export default function Home() {
   return (
     <>
       <stc.Content>
-        <ListItem />
         <AddArea />
+        <ListItem />
       </stc.Content>
     </>
   );

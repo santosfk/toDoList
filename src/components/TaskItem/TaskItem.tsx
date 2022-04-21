@@ -5,24 +5,35 @@ import {
   Description,
   IconsWrapper,
   ViewContent,
+  DeleteDiv,
+  TitleContent,
 } from "./style";
 import { DataTask } from "../listItem/ListItem";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Checkbox } from "@mui/material";
 
-export default function TaskItem({ title, description }: DataTask) {
+type data = {
+  title: string;
+  description: string;
+};
+type Props = {
+  title: data;
+  description: data;
+  deleteData: Function;
+};
+export default function TaskItem({ title, description, deleteData }: Props) {
   const [boxChecked, setBoxChecked] = useState(false);
   const [showDescription, setShowDescription] = useState(false);
   return (
-    <Container
-      boxChecked={boxChecked}
-      showDescription={showDescription}
-      onClick={() => setShowDescription(!showDescription)}
-    >
+    <Container boxChecked={boxChecked} showDescription={showDescription}>
       <ViewContent>
-        <Title boxChecked={boxChecked}>{title}</Title>
+        <TitleContent onClick={() => setShowDescription(!showDescription)}>
+          <Title boxChecked={boxChecked}>{title}</Title>
+        </TitleContent>
         <IconsWrapper>
-          <DeleteIcon />
+          <DeleteDiv onClick={() => deleteData(title)}>
+            <DeleteIcon />
+          </DeleteDiv>
           <Checkbox onChange={() => setBoxChecked(!boxChecked)} />
         </IconsWrapper>
       </ViewContent>
