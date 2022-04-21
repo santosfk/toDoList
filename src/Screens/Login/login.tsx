@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { TextField, Button } from "@mui/material";
@@ -14,6 +14,7 @@ import {
 } from "./style";
 import SendIcon from "@mui/icons-material/Send";
 import TasksAnimation from "../../animations/components/Tasks";
+import { UserEmail } from "../../Context/UserEmailContext";
 
 type Inputs = {
   email: string;
@@ -21,6 +22,7 @@ type Inputs = {
 };
 export default function Login() {
   const navigation = useNavigate();
+  const { userReceiveEmail, setUserReceiveEmail } = useContext(UserEmail);
   const handleChangeRoute = (route: string) => {
     navigation(`/${route}`);
   };
@@ -37,9 +39,9 @@ export default function Login() {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        setUserReceiveEmail(user?.email);
         handleChangeRoute("home");
-        console.log(user.uid);
-
+        console.log(user.email);
         // ...
       })
       .catch((error) => {
