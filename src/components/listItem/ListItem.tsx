@@ -5,6 +5,7 @@ import database from "../../services/firebase";
 import TaskItem from "../TaskItem";
 import { UserEmail } from "../../Context/UserEmailContext";
 import { ChangeData } from "../../Context/ChangeDataContext";
+import { useNavigate } from "react-router-dom";
 export interface DataTask {
   [id: string]: {
     title: string;
@@ -13,12 +14,17 @@ export interface DataTask {
 }
 function ListItem() {
   const [receiveData, setReceiveData] = useState<DataTask[]>([]);
-  const { userReceiveEmail } = useContext(UserEmail);
+  const { userReceiveEmail, setUserReceiveEmail } = useContext(UserEmail);
   const { changeDataContext, setChangeDataContext } = useContext(ChangeData);
+  const navigation = useNavigate();
+  const handleChangeRoute = (route: String) => {
+    navigation(`/${route}`);
+  };
+
   useEffect(() => {
     getData();
   }, [changeDataContext]);
-  console.log(userReceiveEmail);
+
   const taskRef = collection(database, userReceiveEmail);
   const getData = async () => {
     const data = await getDocs(taskRef);
@@ -27,11 +33,11 @@ function ListItem() {
     }));
     setReceiveData(receiveTasks);
   };
-  console.log(receiveData);
   const deleteData = async (title: string) => {
-    await deleteDoc(doc(database, "tasks", title));
+    await deleteDoc(doc(database, userReceiveEmail, title));
     setChangeDataContext(!changeDataContext);
   };
+
   return (
     <>
       <div>

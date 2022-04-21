@@ -39,9 +39,9 @@ export default function Login() {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        setUserReceiveEmail(user?.email);
+        setUserReceiveEmail(user.email);
         handleChangeRoute("home");
-        console.log(user.email);
+
         // ...
       })
       .catch((error) => {
