@@ -1,25 +1,14 @@
 import React, { useState } from "react";
 import * as style from "./style";
-type Props = {
-  onAdd: (taskName: string) => void;
-};
-function AddArea({ onAdd }: Props) {
-  const [receiveText, setReceiveText] = useState("");
-  const taskAdd = () => {
-    if (receiveText !== "") {
-      onAdd(receiveText);
-      setReceiveText("");
-    }
-  };
+import AddModal from "../addModal";
+function AddArea() {
+  const [modalOn, setModalOn] = useState(false);
   return (
     <style.Container>
-      <button onClick={taskAdd}>Adicionar</button>
-      <input
-        type="text"
-        placeholder="digite sua tarefa"
-        value={receiveText}
-        onChange={(e) => setReceiveText(e.target.value)}
-      />
+      {modalOn && <AddModal setModalOn={setModalOn} />}
+      <style.ButtonAddTask onClick={() => setModalOn(true)}>
+        Nova Tarefa
+      </style.ButtonAddTask>
     </style.Container>
   );
 }
