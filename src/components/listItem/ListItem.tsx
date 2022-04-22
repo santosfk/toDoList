@@ -25,13 +25,18 @@ function ListItem() {
   useEffect(() => {
     getData();
   }, [changeDataContext]);
-  const taskRef = collection(database, userReceiveEmail);
   const getData = async () => {
-    const data = await getDocs(taskRef);
-    const receiveTasks = data.docs.map((doc) => ({
-      ...doc.data(),
-    }));
-    setReceiveData(receiveTasks);
+    if (userReceiveEmail) {
+      const taskRef = collection(database, userReceiveEmail);
+      const data = await getDocs(taskRef);
+      const receiveTasks = data.docs.map((doc) => ({
+        ...doc.data(),
+      }));
+      setReceiveData(receiveTasks);
+    } else {
+      alert("faça login");
+      handleChangeRoute("login");
+    }
   };
   const deleteData = async (title: string) => {
     await deleteDoc(doc(database, userReceiveEmail, title));
