@@ -1,14 +1,13 @@
 import styled from "styled-components";
-
+import { TextField } from "@mui/material";
 export const Backdrop = styled.div`
   background-color: rgb(190, 190, 190, 0.8);
   width: 100vw;
   height: 100vh;
-  position: absolute;
-  margin: auto;
+  position: relative;
   z-index: 2;
-  left: 0;
-  top: 0;
+  margin: auto;
+  padding-top: 100px;
 `;
 export const Container = styled.div`
   position: absolute;
@@ -22,44 +21,50 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
-export const InputTitleTask = styled.input`
-  width: 300px;
-  height: 25px;
-  border-radius: 5px;
-  padding: 5px;
-  outline: none;
-  border: 2px solid #31e089;
-  transition: 0.5s;
-  :focus {
-    height: 30px;
-    font-size: 1rem;
-  }
-`;
+export const CssTextField = styled(TextField)({
+  width: "400px",
+  "& label.Mui-focused": {
+    color: "green",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "green",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      border: "2px solid crimson",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#31e089",
+    },
+  },
+});
+
 export const InputDescriptionTask = styled.textarea`
   width: 400px;
   height: 20px;
   border-radius: 5px;
-  border: 1px solid #31e089;
+  border: 1px solid crimson;
   padding: 10px;
   outline: none;
   transition: 0.5s;
   :focus {
-    height: 50px;
+    height: 80px;
+    border-color: #31e089;
   }
 `;
 export const SubmitTaskButton = styled.button`
-  width: 200px;
-  height: 40px;
+  width: 300px;
+  height: 50px;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   border: none;
   outline: none;
   font-weight: bold;
   color: white;
-  background-color: #31e089;
+  background-color: crimson;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,5 +72,6 @@ export const SubmitTaskButton = styled.button`
   :hover {
     transform: translateY(2px);
     letter-spacing: 2px;
+    background-color: #31e089;
   }
 `;

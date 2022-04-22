@@ -16,6 +16,7 @@ function ListItem() {
   const [receiveData, setReceiveData] = useState<DataTask[]>([]);
   const { userReceiveEmail, setUserReceiveEmail } = useContext(UserEmail);
   const { changeDataContext, setChangeDataContext } = useContext(ChangeData);
+
   const navigation = useNavigate();
   const handleChangeRoute = (route: String) => {
     navigation(`/${route}`);
@@ -24,7 +25,6 @@ function ListItem() {
   useEffect(() => {
     getData();
   }, [changeDataContext]);
-
   const taskRef = collection(database, userReceiveEmail);
   const getData = async () => {
     const data = await getDocs(taskRef);
