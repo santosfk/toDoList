@@ -7,7 +7,6 @@ export const Backdrop = styled.div`
   position: relative;
   z-index: 2;
   margin: auto;
-  padding-top: 100px;
 `;
 export const Container = styled.div`
   position: absolute;
@@ -16,7 +15,7 @@ export const Container = styled.div`
   height: 400px;
   left: 30%;
   top: 20%;
-  background-color: white;
+  background-color: ${({ theme }) => theme.COLOR.BACKGROUND};
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -46,13 +45,13 @@ export const InputDescriptionTask = styled.textarea`
   width: 400px;
   height: 20px;
   border-radius: 5px;
-  border: 1px solid crimson;
+  border: 1px solid ${({ theme }) => theme.COLOR.RED};
   padding: 10px;
   outline: none;
   transition: 0.5s;
   :focus {
     height: 80px;
-    border-color: #31e089;
+    border-color: ${({ theme }) => theme.COLOR.GREEN};
   }
 `;
 export const SubmitTaskButton = styled.button`
@@ -64,7 +63,7 @@ export const SubmitTaskButton = styled.button`
   outline: none;
   font-weight: bold;
   color: white;
-  background-color: crimson;
+  background-color: ${({ theme }) => theme.COLOR.RED};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,6 +71,6 @@ export const SubmitTaskButton = styled.button`
   :hover {
     transform: translateY(2px);
     letter-spacing: 2px;
-    background-color: #31e089;
+    background-color: ${({ theme }) => theme.COLOR.GREEN};
   }
 `;

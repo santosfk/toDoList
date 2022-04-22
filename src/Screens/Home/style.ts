@@ -7,4 +7,5 @@ export const Content = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  background-color: ${({ theme }) => theme.COLOR.BACKGROUND};
 `;
