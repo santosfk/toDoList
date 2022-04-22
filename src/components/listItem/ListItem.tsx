@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { TasksWrapper } from "./style";
+import { TasksWrapper, Container } from "./style";
 import { doc, getDocs, collection, deleteDoc } from "firebase/firestore";
 import database from "../../services/firebase";
 import TaskItem from "../TaskItem";
@@ -40,7 +40,7 @@ function ListItem() {
 
   return (
     <>
-      <div>
+      <Container>
         {receiveData.map((item, index) => {
           return (
             <>
@@ -54,7 +54,7 @@ function ListItem() {
             </>
           );
         })}
-      </div>
+      </Container>
     </>
   );
 }

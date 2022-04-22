@@ -5,7 +5,7 @@ export const Container = styled.div<{
   showDescription: Boolean;
 }>`
   transition: 0.5s;
-  background-color: ${({ boxChecked }) => (boxChecked ? "#F0541D" : "#a2a2a2")};
+  background-color: ${({ boxChecked }) => (boxChecked ? "crimson" : "#31e089")};
   width: 800px;
   height: ${({ showDescription }) => (showDescription ? "100px" : "50px")};
   padding: 10px;
@@ -26,8 +26,12 @@ export const Title = styled.h1<{ boxChecked: Boolean }>`
   text-decoration: ${({ boxChecked }) =>
     boxChecked ? "line-through" : "none"};
   color: white;
+  font-weight: bold;
 `;
-export const Description = styled.text``;
+export const Description = styled.text`
+  color: white;
+  font-weight: 400;
+`;
 export const IconsWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -38,6 +42,6 @@ export const DeleteDiv = styled.div`
   transition: 0.5s;
   color: white;
   :hover {
-    background-color: grey;
+    background-color: #61a3f2;
   }
 `;
