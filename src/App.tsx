@@ -6,19 +6,23 @@ import Login from "./Screens/Login";
 import GlobalStyle from "./global.styles";
 import UserEmailContext from "./Context/UserEmailContext";
 import ChangeDataContext from "./Context/ChangeDataContext";
+import { ThemeProvider } from "styled-components";
+import themes from "./themes";
 function App() {
   return (
     <>
-      <ChangeDataContext>
-        <UserEmailContext>
-          <GlobalStyle />
-          <Routes>
-            <Route path="/" element={<Signup />} />
-            <Route path="home" element={<Home />} />
-            <Route path="login" element={<Login />} />
-          </Routes>
-        </UserEmailContext>
-      </ChangeDataContext>
+      <ThemeProvider theme={themes.light}>
+        <ChangeDataContext>
+          <UserEmailContext>
+            <GlobalStyle />
+            <Routes>
+              <Route path="/" element={<Signup />} />
+              <Route path="home" element={<Home />} />
+              <Route path="login" element={<Login />} />
+            </Routes>
+          </UserEmailContext>
+        </ChangeDataContext>
+      </ThemeProvider>
     </>
   );
 }

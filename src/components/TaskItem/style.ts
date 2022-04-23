@@ -5,7 +5,7 @@ export const Container = styled.div<{
   showDescription: Boolean;
 }>`
   transition: 0.5s;
-  background-color: ${({ boxChecked }) => (boxChecked ? "crimson" : "#31e089")};
+  background-color: ${({ boxChecked }) => (boxChecked ? "#dc143c" : "#31e089")};
   width: 800px;
   height: ${({ showDescription }) => (showDescription ? "100px" : "50px")};
   padding: 10px;
@@ -25,11 +25,11 @@ export const TitleContent = styled.div`
 export const Title = styled.h1<{ boxChecked: Boolean }>`
   text-decoration: ${({ boxChecked }) =>
     boxChecked ? "line-through" : "none"};
-  color: white;
+  color: ${({ theme }) => theme.COLOR.TEXT};
   font-weight: bold;
 `;
 export const Description = styled.text`
-  color: white;
+  color: ${({ theme }) => theme.COLOR.TEXT};
   font-weight: 400;
 `;
 export const IconsWrapper = styled.div`
