@@ -5,6 +5,7 @@ import {
   InputDescriptionTask,
   SubmitTaskButton,
   CssTextField,
+  TextFieldContent,
 } from "./style";
 import {
   doc,
@@ -17,7 +18,7 @@ import database from "../../services/firebase";
 import AddIcon from "@mui/icons-material/Add";
 import { UserEmail } from "../../Context/UserEmailContext";
 import { ChangeData } from "../../Context/ChangeDataContext";
-import { TextField } from "@mui/material";
+import { Button } from "@mui/material";
 
 type Props = {
   setModalOn: Function;
@@ -41,12 +42,17 @@ export default function AddModal({ setModalOn }: Props) {
     <>
       <Backdrop onClick={() => setModalOn(false)} />
       <Container>
-        <CssTextField
-          id="filled-basic"
-          label="tarefa"
-          placeholder="titulo da tarefa"
-          onChange={(e) => setReceiveTitle(e.target.value)}
-        />
+        <Button variant="outlined" onClick={() => setModalOn(false)}>
+          Fechar
+        </Button>
+        <TextFieldContent>
+          <CssTextField
+            id="filled-basic"
+            label="tarefa"
+            placeholder="titulo da tarefa"
+            onChange={(e) => setReceiveTitle(e.target.value)}
+          />
+        </TextFieldContent>
         <InputDescriptionTask
           placeholder="descrição da tarefa"
           onChange={(e) => setReceiveDescription(e.target.value)}

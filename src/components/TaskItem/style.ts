@@ -14,6 +14,31 @@ export const Container = styled.div<{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media (min-width: 320px) {
+    width: 270px;
+    height: ${({ showDescription }) => (showDescription ? "80px" : "30px")};
+  }
+  @media (min-width: 375px) {
+    width: 320px;
+  }
+  @media (min-width: 425px) {
+    width: 370px;
+  }
+  @media (min-width: 768px) {
+    width: 500px;
+    height: ${({ showDescription }) => (showDescription ? "100px" : "40px")};
+  }
+  @media (min-width: 1024px) {
+    width: 600px;
+  }
+  @media (min-width: 1440px) {
+    width: 700px;
+    height: ${({ showDescription }) => (showDescription ? "100px" : "50px")};
+  }
+  @media (min-width: 2560px) {
+    width: 1100px;
+    height: ${({ showDescription }) => (showDescription ? "120px" : "70px")};
+  }
 `;
 export const ViewContent = styled.div`
   display: flex;
@@ -27,10 +52,28 @@ export const Title = styled.h1<{ boxChecked: Boolean }>`
     boxChecked ? "line-through" : "none"};
   color: ${({ theme }) => theme.COLOR.TEXT};
   font-weight: bold;
+  @media (min-width: 320px) {
+    font-size: 1rem;
+  }
+  @media (min-width: 1440px) {
+    font-size: 1.5rem;
+  }
+  @media (min-width: 2560px) {
+    font-size: 2.2rem;
+  }
 `;
 export const Description = styled.text`
   color: ${({ theme }) => theme.COLOR.TEXT};
   font-weight: 400;
+  @media (min-width: 320px) {
+    font-size: 1rem;
+  }
+  @media (min-width: 1440px) {
+    font-size: 1.2rem;
+  }
+  @media (min-width: 2560px) {
+    font-size: 1.7rem;
+  }
 `;
 export const IconsWrapper = styled.div`
   display: flex;
