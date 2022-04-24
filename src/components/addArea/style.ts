@@ -9,6 +9,9 @@ export const Container = styled.div`
   @media (min-width: 320px) {
     flex-direction: column;
   }
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
 `;
 export const ButtonAddTask = styled.button`
   width: 300px;
@@ -30,10 +33,14 @@ export const ButtonAddTask = styled.button`
   @media (min-width: 320px) {
     width: 250px;
     height: 40px;
+    margin: 20px 0px;
   }
   @media (min-width: 425px) {
     width: 300px;
     height: 50px;
+  }
+  @media (min-width: 1024px) {
+    margin: 0px 50px;
   }
   @media (min-width: 1440px) {
     width: 350px;
