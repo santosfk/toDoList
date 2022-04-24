@@ -36,7 +36,7 @@ export const Container = styled.div<{
     height: ${({ showDescription }) => (showDescription ? "100px" : "50px")};
   }
   @media (min-width: 2560px) {
-    width: 1100px;
+    width: 1500px;
     height: ${({ showDescription }) => (showDescription ? "120px" : "70px")};
   }
 `;
