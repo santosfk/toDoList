@@ -6,6 +6,9 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (min-width: 320px) {
+    flex-direction: column;
+  }
 `;
 export const ButtonAddTask = styled.button`
   width: 300px;
@@ -18,7 +21,7 @@ export const ButtonAddTask = styled.button`
   background-color: #136af2;
   border-radius: 5px;
   transition: 0.5s;
-  margin: 0px 100px;
+  margin: 20px 0px;
   :hover {
     background-color: white;
     color: #136af2;
@@ -50,5 +53,14 @@ export const GithubLink = styled.div`
     justify-content: space-around;
     text-decoration: none;
     color: ${({ theme }) => theme.COLOR.GREEN};
+    @media (min-width: 320px) {
+      font-size: 1rem;
+    }
+    @media (min-width: 1440px) {
+      font-size: 1.5rem;
+    }
+    @media (min-width: 2560px) {
+      font-size: 2rem;
+    }
   }
 `;
