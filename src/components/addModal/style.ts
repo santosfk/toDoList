@@ -22,6 +22,29 @@ export const Container = styled.div`
   align-items: center;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  @media (min-width: 320px) {
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+  }
+  @media (min-width: 1440px) {
+    width: 500px;
+    height: 600px;
+    top: 10%;
+    left: 30%;
+  }
+  @media (min-width: 2560px) {
+    width: 800px;
+    height: 900px;
+    top: 20%;
+  }
+`;
+export const TextFieldContent = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 export const CssTextField = styled(TextField)({
   width: "400px",
@@ -52,6 +75,18 @@ export const InputDescriptionTask = styled.textarea`
   :focus {
     height: 80px;
     border-color: ${({ theme }) => theme.COLOR.GREEN};
+  }
+  @media (min-width: 320px) {
+    width: 250px;
+  }
+  @media (min-width: 768px) {
+    width: 370px;
+  }
+  @media (min-width: 1440px) {
+    width: 420px;
+  }
+  @media (min-width: 2560px) {
+    width: 520px;
   }
 `;
 export const SubmitTaskButton = styled.button`
