@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as style from "./style";
 import AddModal from "../addModal";
 import Github from "@mui/icons-material/GitHub";
+import { Switch } from "@mui/material";
 function AddArea() {
   const [modalOn, setModalOn] = useState(false);
   return (
@@ -15,6 +16,7 @@ function AddArea() {
           <Github />
           veja no github
         </a>
+        <Switch />
       </style.GithubLink>
     </style.Container>
   );
