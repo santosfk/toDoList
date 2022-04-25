@@ -14,6 +14,8 @@ export const Container = styled.div<{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  z-index: 0;
   @media (min-width: 320px) {
     width: 270px;
     height: ${({ showDescription }) => (showDescription ? "80px" : "30px")};

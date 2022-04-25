@@ -4,5 +4,6 @@ export default {
     TEXT: "#111111",
     GREEN: "#31e089",
     RED: "#dc143c",
+    WHITE: "fffff0",
   },
 };

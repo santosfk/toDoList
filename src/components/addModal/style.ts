@@ -6,6 +6,10 @@ export const Backdrop = styled.div`
   height: 100vh;
   position: relative;
   z-index: 2;
+  right: -300px;
+  top: -10px;
+  padding: 100px;
+  margin-top: -10px;
 `;
 export const Container = styled.div`
   position: absolute;
@@ -25,7 +29,7 @@ export const Container = styled.div`
     width: 100%;
     height: 100vh;
     left: 0;
-    top: 0;
+    top: -15px;
   }
   @media (min-width: 1440px) {
     width: 500px;
@@ -46,10 +50,21 @@ export const TextFieldContent = styled.div`
   justify-content: center;
   input {
     color: ${({ theme }) => theme.COLOR.TEXT};
+    @media (min-width: 320px) {
+      width: 200px;
+    }
+    @media (min-width: 375px) {
+      width: 250px;
+    }
+    @media (min-width: 425px) {
+      width: 300px;
+    }
+    @media (min-width: 768px) {
+      width: 350px;
+    }
   }
 `;
 export const CssTextField = styled(TextField)({
-  width: "400px",
   background: "none",
   "& label.Mui-focused": {
     color: "green",
