@@ -71,3 +71,4 @@ export const GithubLink = styled.div`
     }
   }
 `;
+export const SwitchContent = styled.div``;

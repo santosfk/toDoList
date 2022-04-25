@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import * as style from "./style";
 import AddModal from "../addModal";
 import Github from "@mui/icons-material/GitHub";
 import { Switch } from "@mui/material";
+import { contextThemeChange } from "../../Context/SwitchThemeContext";
 function AddArea() {
   const [modalOn, setModalOn] = useState(false);
+  const { themeChange, setThemeChange } = useContext(contextThemeChange);
   return (
     <style.Container>
       {modalOn && <AddModal setModalOn={setModalOn} />}
@@ -16,7 +18,9 @@ function AddArea() {
           <Github />
           veja no github
         </a>
-        <Switch />
+        <style.SwitchContent>
+          <Switch onChange={() => setThemeChange(!themeChange)} />
+        </style.SwitchContent>
       </style.GithubLink>
     </style.Container>
   );
