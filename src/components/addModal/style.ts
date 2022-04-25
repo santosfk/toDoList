@@ -6,7 +6,6 @@ export const Backdrop = styled.div`
   height: 100vh;
   position: relative;
   z-index: 2;
-  margin: auto;
 `;
 export const Container = styled.div`
   position: absolute;
@@ -45,9 +44,13 @@ export const TextFieldContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  input {
+    color: ${({ theme }) => theme.COLOR.TEXT};
+  }
 `;
 export const CssTextField = styled(TextField)({
   width: "400px",
+  background: "none",
   "& label.Mui-focused": {
     color: "green",
   },
@@ -72,6 +75,8 @@ export const InputDescriptionTask = styled.textarea`
   padding: 10px;
   outline: none;
   transition: 0.5s;
+  background: none;
+  color: ${({ theme }) => theme.COLOR.TEXT};
   :focus {
     height: 80px;
     border-color: ${({ theme }) => theme.COLOR.GREEN};
