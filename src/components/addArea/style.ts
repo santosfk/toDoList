@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   position: fixed;
+  z-index: 1;
   top: 20px;
   display: flex;
   align-items: center;
@@ -27,7 +28,7 @@ export const ButtonAddTask = styled.button`
   transition: 0.5s;
   margin: 20px 0px;
   :hover {
-    background-color: white;
+    background: none;
     color: #136af2;
     border: 1px solid #136af2;
   }
