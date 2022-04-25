@@ -1,3 +1,3 @@
 import light from "./light";
-
-export default { light };
+import dark from "./dark";
+export default { light,dark };

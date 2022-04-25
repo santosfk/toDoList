@@ -11,6 +11,7 @@ export const Container = styled.div`
   }
   @media (min-width: 1024px) {
     flex-direction: row;
+    justify-content: space-around;
   }
 `;
 export const ButtonAddTask = styled.button`
@@ -40,7 +41,7 @@ export const ButtonAddTask = styled.button`
     height: 50px;
   }
   @media (min-width: 1024px) {
-    margin: 0px 50px;
+    margin: 0px 100px;
   }
   @media (min-width: 1440px) {
     width: 350px;
@@ -71,3 +72,4 @@ export const GithubLink = styled.div`
     }
   }
 `;
+export const SwitchContent = styled.div``;

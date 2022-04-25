@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Screens/Home";
 import Signup from "./Screens/Signup";
@@ -8,10 +8,12 @@ import UserEmailContext from "./Context/UserEmailContext";
 import ChangeDataContext from "./Context/ChangeDataContext";
 import { ThemeProvider } from "styled-components";
 import themes from "./themes";
+import { contextThemeChange } from "./Context/SwitchThemeContext";
 function App() {
+  const { themeChange } = useContext(contextThemeChange);
   return (
     <>
-      <ThemeProvider theme={themes.light}>
+      <ThemeProvider theme={themeChange ? themes.dark : themes.light}>
         <ChangeDataContext>
           <UserEmailContext>
             <GlobalStyle />
