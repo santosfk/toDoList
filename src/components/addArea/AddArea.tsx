@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import * as style from "./style";
 import AddModal from "../addModal";
 import Github from "@mui/icons-material/GitHub";
+import Sun from "@mui/icons-material/WbSunnyRounded";
+import Moon from "@mui/icons-material/ShieldMoonRounded";
 import { Switch } from "@mui/material";
 import { contextThemeChange } from "../../Context/SwitchThemeContext";
 function AddArea() {
@@ -9,6 +11,11 @@ function AddArea() {
   const { themeChange, setThemeChange } = useContext(contextThemeChange);
   return (
     <style.Container>
+      <style.SwitchContent>
+        <Sun color={themeChange ? "disabled" : "warning"} />
+        <Switch onChange={() => setThemeChange(!themeChange)} />
+        <Moon color={themeChange ? "warning" : "disabled"} />
+      </style.SwitchContent>
       {modalOn && <AddModal setModalOn={setModalOn} />}
       <style.ButtonAddTask onClick={() => setModalOn(true)}>
         Nova Tarefa
@@ -18,9 +25,6 @@ function AddArea() {
           <Github />
           veja no github
         </a>
-        <style.SwitchContent>
-          <Switch onChange={() => setThemeChange(!themeChange)} />
-        </style.SwitchContent>
       </style.GithubLink>
     </style.Container>
   );
