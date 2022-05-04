@@ -54,7 +54,7 @@ export const TitleContent = styled.div`
 export const Title = styled.h1<{ boxChecked: Boolean }>`
   text-decoration: ${({ boxChecked }) =>
     boxChecked ? "line-through" : "none"};
-  color: black;
+  color: ${({ theme }) => theme.COLOR.TEXT};
   font-weight: bold;
   @media (min-width: 320px) {
     font-size: 1rem;
@@ -68,6 +68,7 @@ export const Title = styled.h1<{ boxChecked: Boolean }>`
 `;
 export const Description = styled.text`
   color: ${({ theme }) => theme.COLOR.TEXT};
+  transition: 0.5s;
   font-weight: 400;
   @media (min-width: 320px) {
     font-size: 1rem;
