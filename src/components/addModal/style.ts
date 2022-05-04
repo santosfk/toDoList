@@ -63,7 +63,7 @@ export const TextFieldContent = styled.div`
       width: 350px;
     }
     @media (min-width: 1440px) {
-      width: 400px;
+      width: 370px;
     }
     @media (min-width: 2560px) {
       width: 520px;
@@ -103,13 +103,19 @@ export const InputDescriptionTask = styled.textarea`
     border-color: ${({ theme }) => theme.COLOR.GREEN};
   }
   @media (min-width: 320px) {
+    width: 200px;
+  }
+  @media (min-width: 375px) {
     width: 250px;
   }
+  @media (min-width: 425px) {
+    width: 300px;
+  }
   @media (min-width: 768px) {
-    width: 370px;
+    width: 350px;
   }
   @media (min-width: 1440px) {
-    width: 400px;
+    width: 370px;
   }
   @media (min-width: 2560px) {
     width: 520px;
