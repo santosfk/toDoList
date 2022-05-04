@@ -62,6 +62,12 @@ export const TextFieldContent = styled.div`
     @media (min-width: 768px) {
       width: 350px;
     }
+    @media (min-width: 1440px) {
+      width: 400px;
+    }
+    @media (min-width: 2560px) {
+      width: 520px;
+    }
   }
 `;
 export const CssTextField = styled(TextField)({
@@ -84,9 +90,9 @@ export const CssTextField = styled(TextField)({
 
 export const InputDescriptionTask = styled.textarea`
   width: 400px;
-  height: 20px;
+  height: 25px;
   border-radius: 5px;
-  border: 1px solid ${({ theme }) => theme.COLOR.RED};
+  border: 2px solid ${({ theme }) => theme.COLOR.RED};
   padding: 10px;
   outline: none;
   transition: 0.5s;
@@ -103,7 +109,7 @@ export const InputDescriptionTask = styled.textarea`
     width: 370px;
   }
   @media (min-width: 1440px) {
-    width: 420px;
+    width: 400px;
   }
   @media (min-width: 2560px) {
     width: 520px;

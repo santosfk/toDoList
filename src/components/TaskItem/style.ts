@@ -4,8 +4,10 @@ export const Container = styled.div<{
   boxChecked: Boolean;
   showDescription: Boolean;
 }>`
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   transition: 0.5s;
-  background-color: ${({ boxChecked }) => (boxChecked ? "#dc143c" : "#31e089")};
+  background-color: ${({ boxChecked }) =>
+    boxChecked ? "#dc143c" : ({ theme }) => theme.COLOR.WHITE};
   width: 800px;
   height: ${({ showDescription }) => (showDescription ? "100px" : "50px")};
   padding: 10px;
@@ -52,7 +54,7 @@ export const TitleContent = styled.div`
 export const Title = styled.h1<{ boxChecked: Boolean }>`
   text-decoration: ${({ boxChecked }) =>
     boxChecked ? "line-through" : "none"};
-  color: ${({ theme }) => theme.COLOR.TEXT};
+  color: black;
   font-weight: bold;
   @media (min-width: 320px) {
     font-size: 1rem;
@@ -85,7 +87,7 @@ export const DeleteDiv = styled.div`
   padding: 5px;
   border-radius: 5px;
   transition: 0.5s;
-  color: white;
+  color: ${({ theme }) => theme.COLOR.TEXT};
   :hover {
     background-color: #61a3f2;
   }
