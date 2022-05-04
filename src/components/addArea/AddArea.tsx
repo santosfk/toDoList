@@ -28,7 +28,6 @@ function AddArea() {
       <style.GithubLink>
         <a href="https://github.com/santosfk/toDoList">
           <Github />
-          veja no github
         </a>
       </style.GithubLink>
     </style.Container>
@@ -37,7 +36,7 @@ function AddArea() {
 
 const styleAddButton = {
   width: "200px",
-  margin: "20px 40px",
+  margin: "20px 60px",
   padding: "5px",
 };
 export default AddArea;
