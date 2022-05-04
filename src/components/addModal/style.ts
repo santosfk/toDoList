@@ -73,17 +73,17 @@ export const TextFieldContent = styled.div`
 export const CssTextField = styled(TextField)({
   background: "none",
   "& label.Mui-focused": {
-    color: "green",
+    color: "#25f6b2",
   },
   "& .MuiInput-underline:after": {
-    borderBottomColor: "green",
+    borderBottomColor: "#25f6b2",
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       border: "2px solid crimson",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#31e089",
+      borderColor: "#25f6b2",
     },
   },
 });
