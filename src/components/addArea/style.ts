@@ -57,11 +57,17 @@ export const ButtonAddTask = styled.button`
 `;
 export const GithubLink = styled.div`
   a {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     text-decoration: none;
-    color: ${({ theme }) => theme.COLOR.GREEN};
+    background-color: #ffffff;
+    color: black;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     @media (min-width: 320px) {
       font-size: 1rem;
     }

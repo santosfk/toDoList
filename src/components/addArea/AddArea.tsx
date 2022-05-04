@@ -6,6 +6,7 @@ import Sun from "@mui/icons-material/WbSunnyRounded";
 import Moon from "@mui/icons-material/ShieldMoonRounded";
 import { Switch } from "@mui/material";
 import { contextThemeChange } from "../../Context/SwitchThemeContext";
+import { Button } from "@mui/material";
 function AddArea() {
   const [modalOn, setModalOn] = useState(false);
   const { themeChange, setThemeChange } = useContext(contextThemeChange);
@@ -17,17 +18,25 @@ function AddArea() {
         <Moon color={themeChange ? "warning" : "disabled"} />
       </style.SwitchContent>
       {modalOn && <AddModal setModalOn={setModalOn} />}
-      <style.ButtonAddTask onClick={() => setModalOn(true)}>
+      <Button
+        style={styleAddButton}
+        variant="contained"
+        onClick={() => setModalOn(true)}
+      >
         Nova Tarefa
-      </style.ButtonAddTask>
+      </Button>
       <style.GithubLink>
         <a href="https://github.com/santosfk/toDoList">
           <Github />
-          veja no github
         </a>
       </style.GithubLink>
     </style.Container>
   );
 }
 
+const styleAddButton = {
+  width: "200px",
+  margin: "20px 60px",
+  padding: "5px",
+};
 export default AddArea;

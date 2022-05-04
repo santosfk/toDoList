@@ -1,9 +1,9 @@
 export default {
   COLOR: {
     BACKGROUND: "#111111",
-    TEXT: "#ffffff",
+    TEXT: "#f5fffb",
     GREEN: "#31e089",
     RED: "#dc143c",
-    WHITE: "fffff0",
+    WHITE: "#737373",
   },
 };

@@ -32,14 +32,14 @@ export const Container = styled.div`
     top: -15px;
   }
   @media (min-width: 1440px) {
-    width: 500px;
-    height: 600px;
+    width: 450px;
+    height: 550px;
     top: 10%;
     left: 30%;
   }
   @media (min-width: 2560px) {
-    width: 800px;
-    height: 900px;
+    width: 700px;
+    height: 800px;
     top: 20%;
   }
 `;
@@ -61,6 +61,12 @@ export const TextFieldContent = styled.div`
     }
     @media (min-width: 768px) {
       width: 350px;
+    }
+    @media (min-width: 1440px) {
+      width: 400px;
+    }
+    @media (min-width: 2560px) {
+      width: 520px;
     }
   }
 `;
@@ -84,9 +90,9 @@ export const CssTextField = styled(TextField)({
 
 export const InputDescriptionTask = styled.textarea`
   width: 400px;
-  height: 20px;
+  height: 25px;
   border-radius: 5px;
-  border: 1px solid ${({ theme }) => theme.COLOR.RED};
+  border: 2px solid ${({ theme }) => theme.COLOR.RED};
   padding: 10px;
   outline: none;
   transition: 0.5s;
@@ -103,14 +109,14 @@ export const InputDescriptionTask = styled.textarea`
     width: 370px;
   }
   @media (min-width: 1440px) {
-    width: 420px;
+    width: 400px;
   }
   @media (min-width: 2560px) {
     width: 520px;
   }
 `;
 export const SubmitTaskButton = styled.button`
-  width: 300px;
+  width: 150px;
   height: 50px;
   border-radius: 5px;
   font-size: 1.2rem;
@@ -121,11 +127,10 @@ export const SubmitTaskButton = styled.button`
   background-color: ${({ theme }) => theme.COLOR.RED};
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   transition: 0.5s;
   :hover {
     transform: translateY(2px);
-    letter-spacing: 2px;
-    background-color: ${({ theme }) => theme.COLOR.GREEN};
+    background-color: #49b675;
   }
 `;
