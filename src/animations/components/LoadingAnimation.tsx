@@ -12,8 +12,8 @@ export default function LoadingAnimation() {
     animationData: loading,
   };
   const style = {
-    width: "500px",
-    height: "500px",
+    width: "100px",
+    height: "100px",
   };
   const { View } = useLottie(defaultOption, style);
   return View;
