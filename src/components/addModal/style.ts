@@ -137,6 +137,9 @@ export const SubmitTaskButton = styled.button`
   transition: 0.5s;
   :hover {
     transform: translateY(2px);
-    background-color: #49b675;
+    background-color: #eb1725;
+  }
+  :focus {
+    background-color: #07f6aa;
   }
 `;
