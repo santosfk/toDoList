@@ -6,6 +6,7 @@ import TaskItem from "../TaskItem";
 import { UserEmail } from "../../Context/UserEmailContext";
 import { ChangeData } from "../../Context/ChangeDataContext";
 import { useNavigate } from "react-router-dom";
+import LoadingAnimation from "../../animations/components/LoadingAnimation";
 export interface DataTask {
   [id: string]: {
     title: string;
@@ -14,6 +15,7 @@ export interface DataTask {
 }
 function ListItem() {
   const [receiveData, setReceiveData] = useState<DataTask[]>([]);
+  const [loading, setLoading] = useState<Boolean>(false);
   const { userReceiveEmail, setUserReceiveEmail } = useContext(UserEmail);
   const { changeDataContext, setChangeDataContext } = useContext(ChangeData);
 
@@ -39,13 +41,16 @@ function ListItem() {
     }
   };
   const deleteData = async (title: string) => {
+    setLoading(true);
     await deleteDoc(doc(database, userReceiveEmail, title));
     setChangeDataContext(!changeDataContext);
+    setLoading(false);
   };
 
   return (
     <>
       <Container>
+        {loading && <LoadingAnimation />}
         {receiveData.map((item, index) => {
           return (
             <>

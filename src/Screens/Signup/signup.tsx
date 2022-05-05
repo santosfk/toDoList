@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TextField, Button } from "@mui/material";
 import {
   Title,
@@ -14,12 +14,14 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import SendIcon from "@mui/icons-material/Send";
 import ClipboardAnimation from "../../animations/components/ClipboardAnimation";
+import LoadingAnimation from "../../animations/components/LoadingAnimation";
 type Inputs = {
   email: string;
   password: string;
 };
 export default function Signup() {
   const navigation = useNavigate();
+  const [loading, setLoading] = useState<Boolean>(false);
   const handleChangeRoute = (route: string) => {
     navigation(`/${route}`);
   };
@@ -29,6 +31,7 @@ export default function Signup() {
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
+    setLoading(false);
     const email = data.email;
     const password = data.password;
     console.log(email);
@@ -37,12 +40,15 @@ export default function Signup() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        setLoading(true);
         handleChangeRoute("login");
         console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
       });
   };
 
@@ -53,6 +59,7 @@ export default function Signup() {
           <ClipboardAnimation />
         </LeftContent>
         <RightContent>
+          {loading && <LoadingAnimation />}
           <Title>Cadastre-se</Title>
           <form onSubmit={handleSubmit(onSubmit)}>
             <EmailContent>

@@ -19,6 +19,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { UserEmail } from "../../Context/UserEmailContext";
 import { ChangeData } from "../../Context/ChangeDataContext";
 import { Button } from "@mui/material";
+import LoadingAnimation from "../../animations/components/LoadingAnimation";
 
 type Props = {
   setModalOn: Function;
@@ -26,22 +27,31 @@ type Props = {
 export default function AddModal({ setModalOn }: Props) {
   const [receiveTitle, setReceiveTitle] = useState("");
   const [receiveDescription, setReceiveDescription] = useState("");
+  const [loading, setLoading] = useState<Boolean>(false);
   const { changeDataContext, setChangeDataContext } = useContext(ChangeData);
   const { userReceiveEmail } = useContext(UserEmail);
   const taskRef = collection(database, userReceiveEmail);
   const pullData = async () => {
-    await setDoc(doc(taskRef, receiveTitle), {
-      title: receiveTitle,
-      description: receiveDescription,
-    });
-    setModalOn(false);
-    setChangeDataContext(!changeDataContext);
+    if (receiveTitle) {
+      setLoading(true);
+      await setDoc(doc(taskRef, receiveTitle), {
+        title: receiveTitle,
+        description: receiveDescription,
+      });
+      setModalOn(false);
+      setChangeDataContext(!changeDataContext);
+      setLoading(false);
+    } else {
+      alert("digite um titulo");
+    }
   };
+  const LoadingComponent = () => <LoadingAnimation />;
 
   return (
     <>
       <Backdrop onClick={() => setModalOn(false)} />
       <Container>
+        {loading && <LoadingComponent />}
         <Button variant="outlined" onClick={() => setModalOn(false)}>
           Fechar
         </Button>

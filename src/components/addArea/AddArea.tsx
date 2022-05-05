@@ -38,5 +38,6 @@ const styleAddButton = {
   width: "200px",
   margin: "20px 60px",
   padding: "5px",
+  fontFamily: " Open Sans, sans-serif",
 };
 export default AddArea;

@@ -63,7 +63,7 @@ export const TextFieldContent = styled.div`
       width: 350px;
     }
     @media (min-width: 1440px) {
-      width: 400px;
+      width: 370px;
     }
     @media (min-width: 2560px) {
       width: 520px;
@@ -73,17 +73,17 @@ export const TextFieldContent = styled.div`
 export const CssTextField = styled(TextField)({
   background: "none",
   "& label.Mui-focused": {
-    color: "green",
+    color: "#25f6b2",
   },
   "& .MuiInput-underline:after": {
-    borderBottomColor: "green",
+    borderBottomColor: "#25f6b2",
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       border: "2px solid crimson",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#31e089",
+      borderColor: "#25f6b2",
     },
   },
 });
@@ -103,13 +103,19 @@ export const InputDescriptionTask = styled.textarea`
     border-color: ${({ theme }) => theme.COLOR.GREEN};
   }
   @media (min-width: 320px) {
+    width: 200px;
+  }
+  @media (min-width: 375px) {
     width: 250px;
   }
+  @media (min-width: 425px) {
+    width: 300px;
+  }
   @media (min-width: 768px) {
-    width: 370px;
+    width: 350px;
   }
   @media (min-width: 1440px) {
-    width: 400px;
+    width: 370px;
   }
   @media (min-width: 2560px) {
     width: 520px;
@@ -131,6 +137,9 @@ export const SubmitTaskButton = styled.button`
   transition: 0.5s;
   :hover {
     transform: translateY(2px);
-    background-color: #49b675;
+    background-color: #eb1725;
+  }
+  :focus {
+    background-color: #07f6aa;
   }
 `;

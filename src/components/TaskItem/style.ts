@@ -18,6 +18,7 @@ export const Container = styled.div<{
   justify-content: center;
   position: relative;
   z-index: 0;
+  border: 2px solid #25f6b2;
   @media (min-width: 320px) {
     width: 270px;
     height: ${({ showDescription }) => (showDescription ? "80px" : "30px")};

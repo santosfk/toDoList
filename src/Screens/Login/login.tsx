@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { TextField, Button } from "@mui/material";
@@ -15,6 +15,7 @@ import {
 import SendIcon from "@mui/icons-material/Send";
 import TasksAnimation from "../../animations/components/Tasks";
 import { UserEmail } from "../../Context/UserEmailContext";
+import LoadingAnimation from "../../animations/components/LoadingAnimation";
 
 type Inputs = {
   email: string;
@@ -22,7 +23,8 @@ type Inputs = {
 };
 export default function Login() {
   const navigation = useNavigate();
-  const { userReceiveEmail, setUserReceiveEmail } = useContext(UserEmail);
+  const { setUserReceiveEmail } = useContext(UserEmail);
+  const [loading, setLoading] = useState<Boolean>(false);
   const handleChangeRoute = (route: string) => {
     navigation(`/${route}`);
   };
@@ -32,6 +34,7 @@ export default function Login() {
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
+    setLoading(true);
     const email = data.email;
     const password = data.password;
     const auth = getAuth();
@@ -40,6 +43,7 @@ export default function Login() {
         // Signed in
         const user = userCredential.user;
         setUserReceiveEmail(user.email);
+        setLoading(false);
         handleChangeRoute("home");
 
         // ...
@@ -52,6 +56,7 @@ export default function Login() {
   return (
     <Container>
       <LeftContent>
+        {loading && <LoadingAnimation />}
         <Title>Faça Login</Title>
         <form onSubmit={handleSubmit(onSubmit)}>
           <EmailContent>
